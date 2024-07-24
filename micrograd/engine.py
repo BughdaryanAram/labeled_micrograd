@@ -2,9 +2,10 @@
 class Value:
     """ stores a single scalar value and its gradient """
 
-    def __init__(self, data, _children=(), _op=''):
+    def __init__(self, data, _children=(), _op='', label=''):
         self.data = data
         self.grad = 0
+        self.label = label
         # internal variables used for autograd graph construction
         self._backward = lambda: None
         self._prev = set(_children)
